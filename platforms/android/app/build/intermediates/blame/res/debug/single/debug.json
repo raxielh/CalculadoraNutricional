@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/platforms/android/app/build/intermediates/res/merged/debug/drawable-mdpi_screen.png.flat",
+        "source": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/platforms/android/app/src/main/res/drawable-mdpi/screen.png"
+    },
+    {
+        "merged": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/platforms/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_icon.png.flat",
+        "source": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/platforms/android/app/src/main/res/mipmap-mdpi/icon.png"
+    },
+    {
+        "merged": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/D:\\Documentos\\GitHub\\CalculadoraNutricional\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_icon.png.flat",
+        "source": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/D:\\Documentos\\GitHub\\CalculadoraNutricional\\platforms\\android\\app\\src\\main\\res\\mipmap-mdpi\\icon.png"
+    },
+    {
+        "merged": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/D:\\Documentos\\GitHub\\CalculadoraNutricional\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_screen.png.flat",
+        "source": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/D:\\Documentos\\GitHub\\CalculadoraNutricional\\platforms\\android\\app\\src\\main\\res\\drawable-mdpi\\screen.png"
+    },
+    {
+        "merged": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/D:\\Documentos\\GitHub\\CalculadoraNutricional\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_config.xml.flat",
+        "source": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/D:\\Documentos\\GitHub\\CalculadoraNutricional\\platforms\\android\\app\\src\\main\\res\\xml\\config.xml"
+    },
+    {
+        "merged": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/platforms/android/app/build/intermediates/res/merged/debug/xml_config.xml.flat",
+        "source": "/Users/raxielh/Documents/GitHub/CalculadoraNutricional/platforms/android/app/src/main/res/xml/config.xml"
+    }
+]

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#2196f3">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+  <title>App</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="packages/core/css/framework7.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <style>
+    .md .navbar {
+        height: 56px;
+        background: #1444cc;
+        color: #fff;
+        font-size: 20px;
+    }
+    #page_1,#page_2,#paso2,#paso3,#mpa,#page_apache,#page_sofa{
+      display: none;
+    }
+    a{
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="view view-main view-init ios-edges" data-url="/">
+      <div class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="title sliding">Calculadora Nutricional</div>
+          </div>
+        </div>
+        <div class="page-content">
+
+          <div id="page_0" style="margin: 1em">
+            <center><img src="img/paciente.png" width="40%"></center>
+            <div class="block-title">Paciente</div>
+            <div class="block">
+              <p class="row">
+                <button class="col button button-fill color-green" id="no_on">Entrar...</button>
+              <!--
+                <button class="col button button-fill color-green" id="no_on">NO ONCOLOGICO</button>
+                <button class="col button button-fill color-red" id="si_on">ONCOLOGICO</button>
+              -->
+              </p>
+            </div>
+          </div>
+
+          <div id="page_1" style="margin: 1em">                
+            <div id="paso1">
+              <div class="block-title">Paso 1 Evaluacion nutricional</div>
+                <div class="card">
+                  <div class="card-content card-content-padding">
+                    <div class="list no-hairlines-md">
+                      <ul>
+                        <li>
+                          <div class="item-content item-input item-input-with-info">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <input type="number" id="edad" placeholder="Edad">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Edad del paciente</div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content item-input item-input-with-info">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <input type="number" id="apache" readonly="" placeholder="Apache II">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Apache II del paciente</div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content item-input item-input-with-info">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <input type="number" id="sofa" placeholder="SOFA" readonly="">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">SOFA del paciente</div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content item-input item-input-with-info">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <input type="number" id="Numerocomorbilidades" placeholder="Numero de comorbilidades">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Numero de comorbilidades del paciente</div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content item-input item-input-with-info">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <input type="number" id="diashospitaliacion" placeholder="Dias de hospitaliacion">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">dias de hospitaliacion del paciente</div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="list simple-list">
+                      <ul>
+                        <li>Riesgo:<span class="riesgo"></span></li>
+                        <input type="hidden" id="puede_seguir1">
+                      </ul>
+                    </div>
+                  </div>    
+                  <div class="row" style="margin-top: 2em">
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <a class="button button-fill color-orange" id="back10"  href="#">
+                      <i class="icon icon-prev"></i> Atras</a>
+                    </div>
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <a class="button button-fill color-blue" href="#" id="sp12">
+                       Paso 2 <i class="icon icon-next"></i></a>
+                    </div>
+                  </div>
+                </div>
+            <div id="paso2">
+              <div class="block-title">Paso 2 Calcular requerimientos</div>
+                <div class="card">
+                  <div class="card-content card-content-padding">
+                    <div class="list no-hairlines-md">
+                      <ul>
+                        <li>
+                          <div class="item-content item-input item-input-with-info" style="padding-bottom: 0px">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <select id="sexo">
+                                  <option value="">Sexo</option>
+                                  <option value="1">Hombre</option>
+                                  <option value="0">Mujer</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content item-input item-input-with-info">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <input type="number" id="Peso" placeholder="Peso kilos">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Peso del Paciente Kilos</div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content item-input item-input-with-info">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <input type="number" id="Talla" placeholder="Talla Mts">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Talla del Paciente en Metros</div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content item-input item-input-with-info" style="padding-bottom: 0px">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <select id="estado">
+                                  <option value="">Estado del paciente?</option>
+                                  <option value="Normal">Normal</option>
+                                  <option value="Trauma">Trauma</option>
+                                  <option value="Hemodialisis">Hemodialisis</option>
+                                  <option value="Quemadura">Quemadura</option>
+                                  <option value="pacientecritico">Paciente Critico</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        </ul>
+                        <div class="list simple-list">
+                          <ul>
+                            <li>IMC:<span class="imc"></span></li>
+                            <li>Descripcion IMC:<span class="imcd"></span></li>
+                            <li>Peso corporal total o real:<span class="pctr"></span></li>
+                            <li>Peso ideal:<span class="pi"></span></li>
+                            <li>Peso pedicho:<span class="pp"></span></li>
+                            <li id="mpa">Peso ajustado:<span class="pa" style="margin-left: 10px;padding: 5px;background-color: #ffa611;border-radius: 10px;color: #fff;"></span></li>
+                            <li><a href="#" onclick="alert('(25-30 kcal/kg)/Calorias')">Requerimeintos caloricos:</a><span class="rc"></span></li>
+                            <li><a href="#" onclick="alert('(1,5-2,5 gr/kg)/gr')">Requerimeinto de proteinas:</a><span class="rp"></span></li>
+                            <li><a href="#" onclick="alert('(1cc/ 1Kcal/ 24horas)')">Requerimeinto de agua:</a><span class="ra"></span></li>
+                            <input type="hidden" id="puede_seguir2">
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>    
+                  <div class="row" style="margin-top: 2em">
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <a class="button button-fill color-orange" id="backp1"  href="#">
+                      <i class="icon icon-prev"></i> Atras</a>
+                    </div>
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <a class="button button-fill color-blue" href="#" id="sp1_3">
+                       Paso 3 <i class="icon icon-next"></i></a>
+                    </div>
+                  </div>
+                </div>
+            <div id="paso3">
+              <div class="block-title">Paso 3 Elegir formula nutricional especializada</div>
+                <div class="card data-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="label-cell">Formula </th>
+                        <th class="label-cell">Proteinas</th>
+                        <th class="label-cell">carbohidratos</th>
+                        <th class="label-cell">Lipidos</th>
+                        <th class="label-cell">calorias totales</th>
+                        <th class="label-cell" id="lh">latas hombres(peso normal)</th>
+                        <th class="label-cell" id="lm">latas mujeres(peso normal)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="label-cell">Glucerna 237 ml </td>
+                        <td class="numeric-cell">11</td>
+                        <td class="numeric-cell">29</td>
+                        <td class="numeric-cell">8</td>
+                        <td class="numeric-cell" id="vf1">220</td>
+                        <td class="numeric-cell" id="f1h">...</td>
+                        <td class="numeric-cell" id="f1m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Pulmocare( 237 ml) </td>
+                        <td class="numeric-cell">14,8</td>
+                        <td class="numeric-cell">25</td>
+                        <td class="numeric-cell">22,1</td>
+                        <td class="numeric-cell" id="vf2">355</td>
+                        <td class="numeric-cell" id="f2h">...</td>
+                        <td class="numeric-cell" id="f2m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Ensure Plus HN (237 ml)</td>
+                        <td class="numeric-cell">12,5</td>
+                        <td class="numeric-cell">50</td>
+                        <td class="numeric-cell">10,9</td>
+                        <td class="numeric-cell"id="vf3">350</td>
+                        <td class="numeric-cell" id="f3h">...</td>
+                        <td class="numeric-cell" id="f3m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Ensure clinical  (220 ml) </td>
+                        <td class="numeric-cell">20</td>
+                        <td class="numeric-cell">38,7</td>
+                        <td class="numeric-cell">11</td>
+                        <td class="numeric-cell"id="vf4">330</td>
+                        <td class="numeric-cell" id="f4h">...</td>
+                        <td class="numeric-cell" id="f4m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Nepro AP ( 237 ml)</td>
+                        <td class="numeric-cell">19,1</td>
+                        <td class="numeric-cell">37,9</td>
+                        <td class="numeric-cell">22,7</td>
+                        <td class="numeric-cell"id="vf5">425</td>
+                        <td class="numeric-cell" id="f5h">...</td>
+                        <td class="numeric-cell" id="f5m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Nepro BP (237ml)</td>
+                        <td class="numeric-cell">10,6</td>
+                        <td class="numeric-cell">46,4</td>
+                        <td class="numeric-cell">22,7</td>
+                        <td class="numeric-cell"id="vf6">425</td>
+                        <td class="numeric-cell" id="f6h">...</td>
+                        <td class="numeric-cell" id="f6m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Ensure Advance ( 237ml)</td>
+                        <td class="numeric-cell">13</td>
+                        <td class="numeric-cell">32</td>
+                        <td class="numeric-cell">13</td>
+                        <td class="numeric-cell"id="vf7">237</td>
+                        <td class="numeric-cell" id="f7h">...</td>
+                        <td class="numeric-cell" id="f7m">...</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                  <div class="row" style="margin-top: 2em">
+                    <div class="col-md-6 col-xs-6 col-sm-6">
+                      <a class="button button-fill color-orange" id="backp2"  href="#">
+                      <i class="icon icon-prev"></i> Paso 2</a>
+                    </div>
+                  </div>
+                
+
+          </div>
+
+          <div id="page_apache" style="margin: 1em">
+            <div class="block-title">
+                <div class="row">
+                  <div class="col-md-3 col-xs-3 col-sm-3">
+                    <button class="col button button-fill button-round color-orange" id="backapa"><i class="icon icon-back"></i></button>
+                  </div>
+                  <div class="col-md-9 col-xs-9 col-sm-9" style="margin-top: 10px">
+                    Calcular Apache II
+                  </div>
+                      <div class="list no-hairlines-md" style="width: 100%">
+                        <ul>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="trectal" placeholder="T Rectal">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Tacto Rectal (C)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="presam" placeholder="P arterial media">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Pres Arterial Media</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="frecar" placeholder="Frec cardiaca">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Frecuencia Cardiaca</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="freres" placeholder="Frec respiratoria">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Frecuencia Respiratoria</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="oxi" placeholder="Oxigenacion">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Oxigenacion</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="phar" placeholder="ph Arterial">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">ph Arterial</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="nap" placeholder="Na plasmático">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Na plasmático (mmol/-L)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="kap" placeholder="K plasmático">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">K plasmático (mmol/-L)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="crea" placeholder="Creatinina">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Creatinina (mg(dl))</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="hemo" placeholder="Hemotocrito">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Hemotocrito (%)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <input type="number" id="Leucocitos" placeholder="Leucocitos">
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Leucocitos (x1000)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          
+            
+                          <div class="block">
+                            <div class="row">
+                              <button class="button button-round button-active"  id="calcular_apache">Calcular</button>
+                            </div>
+                          </div>                   
+                        </ul>
+                      </div>
+                </div>
+            </div>  
+          </div>
+
+          <div id="page_sofa" style="margin: 1em">
+            <div class="block-title">
+                <div class="row">
+                  <div class="col-md-3 col-xs-3 col-sm-3">
+                    <button class="col button button-fill button-round color-orange" id="backsofa"><i class="icon icon-back"></i></button>
+                  </div>
+                  <div class="col-md-9 col-xs-9 col-sm-9" style="margin-top: 10px">
+                    Calcular SOFA
+                  </div>
+                      <div class="list no-hairlines-md" style="width: 100%">
+                        <ul>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <select  id="Respiracion">
+                                    <option value="">Elija</option>
+                                    <option value="0">>400</option>
+                                    <option value="1">301 - 400</option>
+                                    <option value="2">201 - 300</option>
+                                    <option value="3">101 - 200 et VA</option>
+                                    <option value="4"><= 100 etVA</option>
+                                  </select>
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Respiracion PaO2/FIO2 (mm Hg)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <select  id="Coagulacion">
+                                    <option value="">Elija</option>
+                                    <option value="0">>150</option>
+                                    <option value="1">101 - 150</option>
+                                    <option value="2">51 - 100</option>
+                                    <option value="3">21 - 50</option>
+                                    <option value="4"><= 20</option>
+                                  </select>
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Coagulacion Plaquetas 10^3/mm^3</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <select  id="Higado">
+                                    <option value="">Elija</option>
+                                    <option value="0">< 12(<20)</option>
+                                    <option value="1">12 - 19(20-32)</option>
+                                    <option value="2">20 - 59(33-101)</option>
+                                    <option value="3">60 - 119(102-204)</option>
+                                    <option value="4">>120 (>204)</option>
+                                  </select>
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Higado Bilirubina (mg/dL)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <select  id="Cardiovascular">
+                                    <option value="">Elija</option>
+                                    <option value="0">No hiperensión</option>
+                                    <option value="1">TAm < 70mmHG</option>
+                                    <option value="2">Dopamina <= 5</option>
+                                    <option value="3">Dopamina > 5</option>
+                                    <option value="4">>Dopamina >15</option>
+                                  </select>
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Cardiovascular Tension Arterial</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <select  id="snc">
+                                    <option value="">Elija</option>
+                                    <option value="0">15</option>
+                                    <option value="1">13-14</option>
+                                    <option value="2">10-12</option>
+                                    <option value="3">6-9</option>
+                                    <option value="4">< 6</option>
+                                  </select>
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Sistema Nervioso Central Escala de glasgow</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-content item-input item-input-with-info">
+                              <div class="item-inner">
+                                <div class="item-input-wrap">
+                                  <select  id="Renal">
+                                    <option value="">Elija</option>
+                                    <option value="0"><1,2</option>
+                                    <option value="1">1,2-1,9</option>
+                                    <option value="2">2,0-3,4</option>
+                                    <option value="3">3,5-4,9</option>
+                                    <option value="4">>=5,0</option>
+                                  </select>
+                                  <span class="input-clear-button"></span>
+                                  <div class="item-input-info">Renal Creatinina (mg/dL)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>                        
+            
+                          <div class="block">
+                            <div class="row">
+                              <button class="button button-round button-active"  id="calcular_sofa">Calcular</button>
+                            </div>
+                          </div>                   
+                        </ul>
+                      </div>
+                </div>
+            </div>  
+          </div>
+
+          <div id="page_2" style="margin: 1em">
+            <div class="block-title">
+                <div class="row">
+                  <div class="col-md-3 col-xs-3 col-sm-3">
+                    <button class="col button button-fill button-round color-orange" id="back20"><i class="icon icon-back"></i></button>
+                  </div>
+                  <div class="col-md-9 col-xs-9 col-sm-9" style="margin-top: 10px">
+                    Paciente Oncologico
+                  </div>
+                </div>
+            </div>  
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="packages/core/js/framework7.min.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/aplicacion.js"></script>
+  <script src="js/apache2.js"></script>
+  <script src="js/sofa.js"></script>
+</body>
+</html>
