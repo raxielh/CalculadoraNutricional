@@ -65,7 +65,7 @@
                           <div class="item-content item-input item-input-with-info">
                             <div class="item-inner">
                               <div class="item-input-wrap">
-                                <input type="number" id="edad" placeholder="Edad">
+                                <input type="number" id="edad" placeholder="Edad" value="">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">Edad del paciente</div>
                               </div>
@@ -76,7 +76,7 @@
                           <div class="item-content item-input item-input-with-info">
                             <div class="item-inner">
                               <div class="item-input-wrap">
-                                <input type="number" id="apache" readonly="" placeholder="Apache II">
+                                <input type="number" id="apache" readonly="" placeholder="Apache II" value="">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">Apache II del paciente</div>
                               </div>
@@ -87,7 +87,7 @@
                           <div class="item-content item-input item-input-with-info">
                             <div class="item-inner">
                               <div class="item-input-wrap">
-                                <input type="number" id="sofa" placeholder="SOFA" readonly="">
+                                <input type="number" id="sofa" placeholder="SOFA" readonly="" value="">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">SOFA del paciente</div>
                               </div>
@@ -98,7 +98,7 @@
                           <div class="item-content item-input item-input-with-info">
                             <div class="item-inner">
                               <div class="item-input-wrap">
-                                <input type="number" id="Numerocomorbilidades" placeholder="Numero de comorbilidades">
+                                <input type="number" id="Numerocomorbilidades" placeholder="Numero de comorbilidades" value="">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">Numero de comorbilidades del paciente</div>
                               </div>
@@ -109,7 +109,7 @@
                           <div class="item-content item-input item-input-with-info">
                             <div class="item-inner">
                               <div class="item-input-wrap">
-                                <input type="number" id="diashospitaliacion" placeholder="Dias de hospitaliacion">
+                                <input type="number" id="diashospitaliacion" placeholder="Dias de hospitaliacion" value="">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">dias de hospitaliacion del paciente</div>
                               </div>
@@ -194,6 +194,17 @@
                             </div>
                           </div>
                         </li>
+                        <li>
+                          <div class="item-content item-input item-input-with-info">
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <input type="number" id="caloriasc" placeholder="KiloCalorias">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">KiloCalorias Complentarias</div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
                         </ul>
                         <div class="list simple-list">
                           <ul>
@@ -204,6 +215,8 @@
                             <li>Peso pedicho:<span class="pp"></span></li>
                             <li id="mpa">Peso ajustado:<span class="pa" style="margin-left: 10px;padding: 5px;background-color: #ffa611;border-radius: 10px;color: #fff;"></span></li>
                             <li><a href="#" onclick="alert('(25-30 kcal/kg)/Calorias')">Requerimeintos caloricos:</a><span class="rc"></span></li>
+                            <li><a href="#">Requerimeintos caloricos normales:</a><span id="rn"></span></li>
+                            <li><a href="#">Requerimeintos caloricos reales:</a><span id="rr"></span></li>
                             <li><a href="#" onclick="alert('(1,5-2,5 gr/kg)/gr')">Requerimeinto de proteinas:</a><span class="rp"></span></li>
                             <li><a href="#" onclick="alert('(1cc/ 1Kcal/ 24horas)')">Requerimeinto de agua:</a><span class="ra"></span></li>
                             <input type="hidden" id="puede_seguir2">
@@ -302,6 +315,74 @@
                         <td class="numeric-cell" id="f7h">...</td>
                         <td class="numeric-cell" id="f7m">...</td>
                       </tr>
+                      <tr>
+                        <td class="label-cell">Nepro Lp</td>
+                        <td class="numeric-cell">10.05</td>
+                        <td class="numeric-cell">41.49</td>
+                        <td class="numeric-cell">48,46</td>
+                        <td class="numeric-cell"id="vf8">396</td>
+                        <td class="numeric-cell" id="f8h">...</td>
+                        <td class="numeric-cell" id="f8m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Fresubin ® Hepa drink (200ml)</td>
+                        <td class="numeric-cell">8</td>
+                        <td class="numeric-cell">34,8 </td>
+                        <td class="numeric-cell">9,4</td>
+                        <td class="numeric-cell"id="vf9">260</td>
+                        <td class="numeric-cell" id="f9h">...</td>
+                        <td class="numeric-cell" id="f9m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Diben DRINK (200ml)</td>
+                        <td class="numeric-cell">15</td>
+                        <td class="numeric-cell">26,2</td>
+                        <td class="numeric-cell">14</td>
+                        <td class="numeric-cell"id="vf10">300</td>
+                        <td class="numeric-cell" id="f10h">...</td>
+                        <td class="numeric-cell" id="f10m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Supportan® DRINK (200ml)</td>
+                        <td class="numeric-cell">20</td>
+                        <td class="numeric-cell">23.2</td>
+                        <td class="numeric-cell">13,4</td>
+                        <td class="numeric-cell"id="vf11">300</td>
+                        <td class="numeric-cell" id="f11h">...</td>
+                        <td class="numeric-cell" id="f11m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Frebini ® Energy fibre Drink (200ml)</td>
+                        <td class="numeric-cell">7,6</td>
+                        <td class="numeric-cell">36,2 </td>
+                        <td class="numeric-cell">13,4</td>
+                        <td class="numeric-cell"id="vf12">300</td>
+                        <td class="numeric-cell" id="f12h">...</td>
+                        <td class="numeric-cell" id="f12m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Fresubin ® Renal (200ml)</td>
+                        <td class="numeric-cell">6</td>
+                        <td class="numeric-cell">52,8</td>
+                        <td class="numeric-cell">17,8</td>
+                        <td class="numeric-cell"id="vf13">400</td>
+                        <td class="numeric-cell" id="f13h">...</td>
+                        <td class="numeric-cell" id="f13m">...</td>
+                      </tr>
+                      <tr>
+                        <td class="label-cell">Fresubin ® 2 kcal DRINK (200ml) </td>
+                        <td class="numeric-cell">20</td>
+                        <td class="numeric-cell">45</td>
+                        <td class="numeric-cell">15,6</td>
+                        <td class="numeric-cell"id="vf14">400</td>
+                        <td class="numeric-cell" id="f14h">...</td>
+                        <td class="numeric-cell" id="f14m">...</td>
+                      </tr>
+
+
+
+
+
                     </tbody>
                   </table>
                 </div>

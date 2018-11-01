@@ -114,6 +114,10 @@ $(function() {
 		calcular_paso2();
 	});
 
+	$("#caloriasc").change(function(e) {
+		calcular_paso2();
+	});
+
 
 
 });
@@ -294,6 +298,10 @@ function calcular_paso2()
 		pa=pa.toFixed(2);
 		$(".pa").text(pa);
 
+		var rn=pi*25;
+		rn=rn.toFixed(2);
+		$("#rn").text(rn);
+
 
 
 		if(descripcion_imc=="NormoPeso"||descripcion_imc=="Sobre Peso Tipo 1"||descripcion_imc=="Sobre Peso Tipo 2"){
@@ -347,6 +355,10 @@ function calcular_paso2()
 		pa=pa.toFixed(2);
 		$(".pa").text(pa);
 
+		var rn=pi*25;
+		rn=rn.toFixed(2);
+		$("#rn").text(rn);
+
 
 		if(descripcion_imc=="NormoPeso"||descripcion_imc=="Sobre Peso Tipo 1"||descripcion_imc=="Sobre Peso Tipo 2"){
 			$(".rc").text(25*peso_ideal);
@@ -383,125 +395,117 @@ function calcular_paso2()
 	}
 	$("#puede_seguir2").val(estado);
 	calcular_paso3(rch,rcm);
+
 	
 
 }
 
 
 function calcular_paso3(rch,rcm){
-	console.log(rch);
-	console.log(rcm);
+	//console.log(rch);
+	//console.log(rcm);
+
+	var cp=$('#caloriasc').val();
+	var rn=$('#rn').text();
+
+	cp=parseInt(cp);
+	rn=parseInt(rn);
+
+	console.log(cp);
+	console.log(rn);
+
+	var rr=rn-cp;
+
+	console.log(rr);
+	$('#rr').text(rr);
+
+
+
 
 	if(rch){
-
-		$("#lh,#f1h,#f2h,#f3h,#f4h,#f5h,#f6h,#f7h").show();
-		$("#lm,#f1m,#f2m,#f3m,#f4m,#f5m,#f6m,#f7m").hide();
-
-		var vf1=$("#vf1").text();
-		vf1=parseFloat(vf1);
-		rch=parseFloat(rch);
-		f1h=rch/vf1;
-		f1h=f1h.toFixed(6);
-		$("#f1h").text(f1h);	
-
-		var vf2=$("#vf2").text();
-		vf2=parseFloat(vf2);
-		rch=parseFloat(rch);
-		f2h=rch/vf2;
-		f2h=f2h.toFixed(6);
-		$("#f2h").text(f2h);
-
-		var vf3=$("#vf3").text();
-		vf3=parseFloat(vf3);
-		rch=parseFloat(rch);
-		f3h=rch/vf3;
-		f3h=f3h.toFixed(6);
-		$("#f3h").text(f3h);
-
-		var vf4=$("#vf4").text();
-		vf4=parseFloat(vf4);
-		rch=parseFloat(rch);
-		f4h=rch/vf4;
-		f4h=f4h.toFixed(6);
-		$("#f4h").text(f4h);	
-
-		var vf5=$("#vf5").text();
-		vf5=parseFloat(vf5);
-		rch=parseFloat(rch);
-		f5h=rch/vf5;
-		f5h=f5h.toFixed(6);
-		$("#f5h").text(f5h);
-
-		var vf6=$("#vf6").text();
-		vf6=parseFloat(vf6);
-		rch=parseFloat(rch);
-		f6h=rch/vf6;
-		f6h=f6h.toFixed(6);
-		$("#f6h").text(f6h);
-
-		var vf7=$("#vf7").text();
-		vf7=parseFloat(vf7);
-		rch=parseFloat(rch);
-		f7h=rch/vf7;
-		f7h=f7h.toFixed(6);
-		$("#f7h").text(f7h);
-
+		$("#lh,#f1h,#f2h,#f3h,#f4h,#f5h,#f6h,#f7h,#f8h,#f9h,#f10h,#f11h,#f12h,#f13h,#f14h").show();
+		$("#lm,#f1m,#f2m,#f3m,#f4m,#f5m,#f6m,#f7m,#f8m,#f9m,#f10m,#f11m,#f12m,#f13m,#f14m").hide();
 	}
 	if(rcm){
+		$("#lh,#f1h,#f2h,#f3h,#f4h,#f5h,#f6h,#f7h,#f8h,#f9h,#f10h,#f11h,#f12h,#f13h,#f14h").hide();
+		$("#lm,#f1m,#f2m,#f3m,#f4m,#f5m,#f6m,#f7m,#f8m,#f9m,#f10m,#f11m,#f12m,#f13m,#f14m").show();
+	}
 
-		$("#lh,#f1h,#f2h,#f3h,#f4h,#f5h,#f6h,#f7h").hide();
-		$("#lm,#f1m,#f2m,#f3m,#f4m,#f5m,#f6m,#f7m").show();
-		
 		var vf1=$("#vf1").text();
-		vf1=parseFloat(vf1);
-		rcm=parseFloat(rcm);
-		f1m=rcm/vf1;
-		f1m=f1m.toFixed(6);
-		$("#f1m").text(f1m);
+		vf1=parseInt(vf1);
+		$("#f1h").text(rr/vf1);	
+		$("#f1m").text(rr/vf1);
 
 		var vf2=$("#vf2").text();
-		vf2=parseFloat(vf2);
-		rcm=parseFloat(rcm);
-		f2m=rcm/vf2;
-		f2m=f2m.toFixed(6);
-		$("#f2m").text(f2m);
+		vf2=parseInt(vf2);
+		$("#f2h").text(rr/vf2);	
+		$("#f2m").text(rr/vf2);
 
 		var vf3=$("#vf3").text();
-		vf3=parseFloat(vf3);
-		rcm=parseFloat(rcm);
-		f3h=rcm/vf3;
-		f3h=f3h.toFixed(6);
-		$("#f3m").text(f3h);	
+		vf3=parseInt(vf3);
+		$("#f3h").text(rr/vf3);	
+		$("#f3m").text(rr/vf3);
 
 		var vf4=$("#vf4").text();
-		vf4=parseFloat(vf4);
-		rcm=parseFloat(rcm);
-		f4h=rcm/vf4;
-		f4h=f4h.toFixed(6);
-		$("#f4m").text(f4h);	
+		vf4=parseInt(vf4);
+		$("#f4h").text(rr/vf4);	
+		$("#f4m").text(rr/vf4);
 
 		var vf5=$("#vf5").text();
-		vf5=parseFloat(vf5);
-		rcm=parseFloat(rcm);
-		f5h=rcm/vf5;
-		f5h=f5h.toFixed(6);
-		$("#f5m").text(f5h);
+		vf5=parseInt(vf5);
+		$("#f5h").text(rr/vf5);	
+		$("#f5m").text(rr/vf5);
 
 		var vf6=$("#vf6").text();
-		vf6=parseFloat(vf6);
-		rcm=parseFloat(rcm);
-		f6h=rcm/vf6;
-		f6h=f6h.toFixed(6);
-		$("#f6m").text(f6h);
+		vf6=parseInt(vf6);
+		$("#f6h").text(rr/vf6);	
+		$("#f6m").text(rr/vf6);
 
 		var vf7=$("#vf7").text();
-		vf7=parseFloat(vf7);
-		rcm=parseFloat(rcm);
-		f7h=rcm/vf7;
-		f7h=f7h.toFixed(6);
-		$("#f7m").text(f7h);
+		vf7=parseInt(vf7);
+		$("#f7h").text(rr/vf7);	
+		$("#f7m").text(rr/vf7);
 
-	}
+		var vf8=$("#vf8").text();
+		vf8=parseInt(vf8);
+		$("#f8h").text(rr/vf8);	
+		$("#f8m").text(rr/vf8);
+
+		var vf9=$("#vf9").text();
+		vf9=parseInt(vf9);
+		$("#f9h").text(rr/vf9);	
+		$("#f9m").text(rr/vf9);
+
+		var vf10=$("#vf10").text();
+		vf10=parseInt(vf10);
+		$("#f10h").text(rr/vf10);	
+		$("#f10m").text(rr/vf10);
+
+		var vf11=$("#vf11").text();
+		vf11=parseInt(vf1);
+		$("#f11h").text(rr/vf11);	
+		$("#f11m").text(rr/vf11);
+
+		var vf12=$("#vf12").text();
+		vf12=parseInt(vf12);
+		$("#f12h").text(rr/vf12);	
+		$("#f12m").text(rr/vf12);
+
+		var vf13=$("#vf13").text();
+		vf13=parseInt(vf13);
+		$("#f13h").text(rr/vf13);	
+		$("#f13m").text(rr/vf13);
+
+		var vf14=$("#vf14").text();
+		vf14=parseInt(vf14);
+		$("#f14h").text(rr/vf14);	
+		$("#f14m").text(rr/vf14);
+
+
+
+
+
+
 
 
 
